@@ -1,0 +1,954 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Seniat</name>
+    </assembly>
+    <members>
+        <member name="T:QCom.CommunicationTools">
+            <summary>
+            This static class is a universal toolbox for the byte and string handling
+            </summary>
+        </member>
+        <member name="M:QCom.CommunicationTools.byteArrayToString(System.Byte[])">
+            <summary>
+            convert a byte-array to a string
+            </summary>
+            <param name="data">byte array</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:QCom.CommunicationTools.byteToString(System.Byte)">
+            <summary>
+            convert a byte to a string (ascii)
+            </summary>
+            <param name="sign">byte value</param>
+            <returns>string as ascii-value</returns>
+        </member>
+        <member name="M:QCom.CommunicationTools.stringToByteArray(System.String)">
+            <summary>
+            convert a string to a byte array
+            supported no unicode conversation
+            </summary>
+            <param name="data">string wich will be processed</param>
+            <returns>byte array</returns>
+        </member>
+        <member name="M:QCom.CommunicationTools.ByteArrayToHexString(System.Byte[])">
+            <summary>
+            convert a byte array to a hex string
+            </summary>
+            <param name="data">byte array</param>
+            <returns>a string which shows the bytes as hex values</returns>
+        </member>
+        <member name="M:QCom.CommunicationTools.unicodeStringToASCIIByteArray(System.String,QCom.CommunicationTools.CodePageType)">
+            <summary>
+            Convert a unicode String to a ASCII Byte Array for the selected codepage
+            </summary>
+            <param name="unicodeData">unicode string</param>
+            <param name="codepage">convert to ASCII codepage</param>
+            <returns>ASCII byte array for codepage</returns>
+        </member>
+        <member name="T:QCom.CommunicationTools.CodePageType">
+            <summary>
+            code page type
+            </summary>
+        </member>
+        <member name="F:QCom.CommunicationTools.CodePageType.WE">
+            <summary>
+            Western Europe
+            </summary>
+        </member>
+        <member name="F:QCom.CommunicationTools.CodePageType.CE">
+            <summary>
+            Central Europe
+            </summary>
+        </member>
+        <member name="F:QCom.CommunicationTools.CodePageType.BA">
+            <summary>
+            Baltic
+            </summary>
+        </member>
+        <member name="F:QCom.CommunicationTools.CodePageType.GR">
+            <summary>
+            Grecian
+            </summary>
+        </member>
+        <member name="F:QCom.CommunicationTools.CodePageType.ARA">
+            <summary>
+            Arabian
+            </summary>
+        </member>
+        <member name="F:QCom.CommunicationTools.CodePageType.CYS">
+            <summary>
+            Cyrillic
+            </summary>
+        </member>
+        <member name="F:QCom.CommunicationTools.CodePageType.HE">
+            <summary>
+            Hebrew
+            </summary>
+        </member>
+        <member name="T:QCom.QCommunication">
+            <summary>
+            Class for Communication to the QUORiON Devices
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_NUL">
+            <summary>
+            Null
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_SOH">
+            <summary>
+            start of heading
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_STX">
+            <summary>
+            start of text
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_ETX">
+            <summary>
+            end of text
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_EOT">
+            <summary>
+            end of transmission
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_ENQ">
+            <summary>
+            enquiry
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_ACK">
+            <summary>
+            acknowledge
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_BEL">
+            <summary>
+            bell
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_BS">
+            <summary>
+            backspace
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_HT">
+            <summary>
+            horizontal Tab
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_LF">
+            <summary>
+            line feed
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_VT">
+            <summary>
+            vertical tab
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_FF">
+            <summary>
+            form feed
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_CR">
+            <summary>
+            carriage return
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_SO">
+            <summary>
+            shift out
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_SI">
+            <summary>
+            shift in
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_DLE">
+            <summary>
+            data link escape
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_DC1">
+            <summary>
+            device control 1
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_DC2">
+            <summary>
+            device control 2
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_DC3">
+            <summary>
+            device control 3
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_DC4">
+            <summary>
+            device control 4
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_NAK">
+            <summary>
+            negative acknowledge
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_SYN">
+            <summary>
+            synchronous idle
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_ETB">
+            <summary>
+            end of transmission block
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_CAN">
+            <summary>
+            cancel
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_EM">
+            <summary>
+            end of medium
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_SUB">
+            <summary>
+            substitute
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_ESC">
+            <summary>
+            escape
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_FS">
+            <summary>
+            file separator
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_GS">
+            <summary>
+            group separator
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_RS">
+            <summary>
+            record separator
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_US">
+            <summary>
+            unit separator
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication._cc_DEL">
+            <summary>
+            rubout / delete
+            </summary>
+        </member>
+        <member name="M:QCom.QCommunication.#ctor(System.String,QCom.QCommunication.BaudRate,System.Int32)">
+            <summary>
+            Create a new communication over the serial port
+            </summary>
+            <param name="serialPort">serial port which connected to the device</param>
+            <param name="baudRate">baudrate of this connection</param>
+            <param name="timeOutValue">value of the time until the timeout</param>
+        </member>
+        <member name="M:QCom.QCommunication.Finalize">
+            <summary>
+            Destructor
+            </summary>
+        </member>
+        <member name="M:QCom.QCommunication.Close">
+            <summary>
+            Close the QCommunication Session - include Dispose()
+            </summary>
+        </member>
+        <member name="M:QCom.QCommunication.Dispose">
+            <summary>
+            IDisposable Function - release the ressources
+            </summary>
+        </member>
+        <member name="M:QCom.QCommunication.SendCommand(System.String,System.Boolean)">
+            <summary>
+            send a string command
+            </summary>
+            <param name="command">string command</param>
+            <param name="waitForAnswer">is set false the program will not wait for an answer</param>
+        </member>
+        <member name="M:QCom.QCommunication.SendCommand(System.Byte[],System.Boolean)">
+            <summary>
+            send a byte array command
+            </summary>
+            <param name="command">byte array command</param>
+            <param name="waitForAnswer">is set false the program will not wait for an answer</param>
+        </member>
+        <member name="M:QCom.QCommunication.sendACK(System.Boolean)">
+            <summary>
+            send a acknowledge signal
+            </summary>
+            <param name="waitForAnswer">is set false the program will not wait for an answer</param>
+        </member>
+        <member name="M:QCom.QCommunication.sendNAK(System.Boolean)">
+            <summary>
+            send a not acknowlege signal
+            </summary>
+            <param name="waitForAnswer">is set false the program will not wait for an answer</param>
+        </member>
+        <member name="M:QCom.QCommunication.resetSerialTimeoutValue">
+            <summary>
+            reset the timeout value, it is important because the serial port check in intervall if a signal is coming
+            is the reset time value old, so will the timeout signal trigger every time 
+            </summary>
+        </member>
+        <member name="M:QCom.QCommunication._serial_DataReceived(System.Object,QCom.ReceivedDataEventArgs)">
+            <summary>
+            trigger by incoming data
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:QCom.QCommunication._serial_TimeOut(System.Object,System.EventArgs)">
+            <summary>
+            trigger by a timeout signal for the serial commonication
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:QCom.QCommunication.getMessages(System.Byte[])">
+            <summary>
+            split the messages
+            </summary>
+            <param name="messages"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QCom.QCommunication.sendOverSerial(System.String,System.Boolean)">
+            <summary>
+            send a string over serial port
+            </summary>
+            <param name="command">command as a string</param>
+            <param name="waitForAnswer">is set false the program will not wait for an answer</param>
+        </member>
+        <member name="M:QCom.QCommunication.sendOverSerial(System.Byte[],System.Boolean)">
+            <summary>
+            send a byte array over serial port
+            </summary>
+            <param name="command">command as a byte array</param>
+            <param name="waitForAnswer">is set false the program will not wait for an answer</param>
+        </member>
+        <member name="M:QCom.QCommunication.sendOverSerial_ACK(System.Boolean)">
+            <summary>
+            send the acknowledge information over serial port
+            </summary>
+            <param name="waitForAnswer">is set false the program will not wait for an answer</param>
+        </member>
+        <member name="M:QCom.QCommunication.sendOverSerial_NAK(System.Boolean)">
+            <summary>
+            send a not acknowledge information over serial port
+            </summary>
+            <param name="waitForAnswer">is set false the program will not wait for an answer</param>
+        </member>
+        <member name="M:QCom.QCommunication.getBaudRate(QCom.QCommunication.BaudRate)">
+            <summary>
+            get the Baudrate for the Serial port by commited baudrate for the boxen
+            </summary>
+            <param name="baudRate">baudrate for the boxen</param>
+            <returns>serial port baudrate</returns>
+        </member>
+        <member name="M:QCom.QCommunication.createSendData(System.Byte[])">
+            <summary>
+            created the full send data with header, data, control character and LRC value
+            </summary>
+            <param name="sendText">data text will be sent</param>
+            <returns>full created send bytes</returns>
+        </member>
+        <member name="M:QCom.QCommunication.decompressDataStream(System.Byte[])">
+            <summary>
+            decompress a dataarray - 0x00 and 0xff values are compress after crc-calculation
+            -before computing data, the dataarray musst decompress
+            0x10 in data comes twice it is one
+            </summary>
+            <param name="data">dataarray wich will be decompress</param>
+            <returns>decompress data array</returns>
+        </member>
+        <member name="M:QCom.QCommunication.compressDataStream(System.Byte[])">
+            <summary>
+            compress a data array - 0x00 and 0xff values will be compress 
+            0x10 must send in twice in the data set
+            </summary>
+            <param name="data">uncompress data-array</param>
+            <returns>compress data-array</returns>
+        </member>
+        <member name="M:QCom.QCommunication.isCRCOK(System.Byte[])">
+            <summary>
+            check the crc value of the data
+            </summary>
+            <param name="data">incoming data array</param>
+            <returns>is crc value correct</returns>      
+        </member>
+        <member name="F:QCom.QCommunication.CRC_Table">
+            <summary>
+            CRC Lookup-Table
+            </summary>
+        </member>
+        <member name="M:QCom.QCommunication.CalculateCRC(System.Byte[])">
+            <summary>
+            Calculate for the commited data-array a 16-bit crc value
+            </summary>
+            <param name="data">data array</param>
+            <returns>16 bit crc value</returns>
+        </member>
+        <member name="M:QCom.QCommunication.UpdateCRC(System.UInt32,System.Byte)">
+            <summary>
+            Update the old crc value with the new calculated value
+            </summary>
+            <param name="crc">old crc value</param>
+            <param name="data">data byte, which for the new crc-value needed</param>
+            <returns>updated crc value</returns>
+        </member>
+        <member name="E:QCom.QCommunication.OnIncomingData">
+            <summary>
+            Event for incoming data signal
+            </summary>
+        </member>
+        <member name="E:QCom.QCommunication.OnTimeOut">
+            <summary>
+            Event for timeout signal
+            </summary>
+        </member>
+        <member name="E:QCom.QCommunication.OnCRCError">
+            <summary>
+            Event for a CRC Error signal
+            </summary>
+        </member>
+        <member name="E:QCom.QCommunication.OnACKMessage">
+            <summary>
+            Event for a ACK Message
+            </summary>
+        </member>
+        <member name="E:QCom.QCommunication.OnNAKMessage">
+            <summary>
+            Event for a NAK Message
+            </summary>
+        </member>
+        <member name="E:QCom.QCommunication.OnSYNMessage">
+            <summary>
+            Event for a SYN Message
+            </summary>
+        </member>
+        <member name="T:QCom.QCommunication.BaudRate">
+            <summary>
+            Enumerate the possible Baudrates
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication.BaudRate.CBR_9600">
+            <summary>
+            Baudrate 9600 bits per second
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication.BaudRate.CBR_19200">
+            <summary>
+            Baudrate 19200 bits per second
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication.BaudRate.CBR_38400">
+            <summary>
+            Baudrate 38400 bits per second
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication.BaudRate.CBR_57600">
+            <summary>
+            Baudrate 57600 bits per second
+            </summary>
+        </member>
+        <member name="F:QCom.QCommunication.BaudRate.CBR_115200">
+            <summary>
+            Baudrate 115200 bits per second
+            </summary>
+        </member>
+        <member name="T:QCom.QCommunication.QCommunicationReceiveHandler">
+            <summary>
+            Handle for incoming Data
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:QCom.QCommunication.QCommunicationTimeOutHandler">
+            <summary>
+            Handle for timeout
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:QCom.QCommunication.QCommunicationCRCErrorHandler">
+            <summary>
+            Handle for CRC Error
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:QCom.QCommunication.QCommunicationNAKEvent">
+            <summary>
+            Handle for NAK Signal
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:QCom.QCommunication.QCommunicationACKEvent">
+            <summary>
+            Handle for ACK Signal
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:QCom.QCommunication.QCommunicationSYNEvent">
+            <summary>
+            Handle for SYN Signal
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:QCom.QCommunicationEventArgs">
+            <summary>
+            Eventclass for QCommunication
+            </summary>
+        </member>
+        <member name="M:QCom.QCommunicationEventArgs.#ctor(System.String,System.Byte[])">
+            <summary>
+            Evenarguments constructor 
+            </summary>
+            <param name="sMessage">incoming data as a string</param>
+            <param name="bMessage">incoming data as a byte array</param>
+        </member>
+        <member name="P:QCom.QCommunicationEventArgs.ReceiveMessageString">
+            <summary>
+            incoming Data as a String 
+            only the informations without control characters
+            </summary>
+        </member>
+        <member name="P:QCom.QCommunicationEventArgs.ReceiveMessageByte">
+            <summary>
+            the complete incoming data as a byte array
+            </summary>
+        </member>
+        <member name="T:QCom.QCommunicationCRCEventArgs">
+            <summary>
+            Eventclass for the CRC Error Event
+            </summary>
+        </member>
+        <member name="M:QCom.QCommunicationCRCEventArgs.#ctor(System.String,System.Byte[],System.Byte,System.Byte)">
+            <summary>
+            Eventargument Constructor
+            </summary>
+            <param name="sMessage">incoming data as a string</param>
+            <param name="bMessage">incoming data as a byte array</param>
+            <param name="incomCRC">incoming crc value</param>
+            <param name="exceptCRC">calculated crc value</param>
+        </member>
+        <member name="P:QCom.QCommunicationCRCEventArgs.ReceiveMessageString">
+            <summary>
+            incoming Data as a String 
+            only the informations without control characters
+            </summary>
+        </member>
+        <member name="P:QCom.QCommunicationCRCEventArgs.ReceiveMessageByte">
+            <summary>
+            the complete incoming data as a byte array
+            </summary>
+        </member>
+        <member name="P:QCom.QCommunicationCRCEventArgs.IncomingCRCValue">
+            <summary>
+            the value of the receive CRC
+            </summary>
+        </member>
+        <member name="P:QCom.QCommunicationCRCEventArgs.ExceptCRCValue">
+            <summary>
+             the value of the except CRC (calculated)
+            </summary>
+        </member>
+        <member name="T:QCom.ThreadSafe">
+            <summary>
+            Helper class for thread safety event calling
+            </summary>
+        </member>
+        <member name="M:QCom.ThreadSafe.Invoke(System.Delegate,System.Object[])">
+            <summary>
+            Method call event event safety - for using event beyond threads 
+            </summary>
+            <param name="method">event delegate</param>
+            <param name="args">event arguments - the first one is the calling method like "this"</param>
+        </member>
+        <member name="T:Seniat.Seniat">
+            <summary>
+            Class for Seniat Communication
+            </summary>
+        </member>
+        <member name="M:Seniat.Seniat.verificarConexion(System.String,System.String,System.String)">
+            <summary>
+            check connection
+            </summary>
+            <param name="brandIdentification">identification for the cr brand</param>
+            <param name="modelIdentification">identification for the cr model</param>
+            <param name="connectionPort">connection port</param>
+            <returns>correct connection</returns>
+        </member>
+        <member name="M:Seniat.Seniat.obtenerEncabezado(System.String,System.String,System.String)">
+            <summary>
+            get header infos
+            </summary>
+            <param name="brandIdentification">identification for the cr brand</param>
+            <param name="modelIdentification">identification for the cr model</param>
+            <param name="exitFileName">saving filename</param>
+            <returns>correct saving file</returns>
+        </member>
+        <member name="M:Seniat.Seniat.leerMemoriaFiscal(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            get fiscal infos
+            </summary>
+            <param name="brandIdentification">identification for the cr brand</param>
+            <param name="modelIdentification">identification for the cr model</param>
+            <param name="DateSince">start date</param>
+            <param name="DateUntil">stop date</param>
+            <param name="exitFileName">saving filename</param>
+            <returns></returns>
+        </member>
+        <member name="M:Seniat.Seniat.obtenerDatosDocumento(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            get document infos
+            </summary>
+            <param name="brandIdentification">identification for the cr brand</param>
+            <param name="modelIdentification">identification for the cr model</param>
+            <param name="DateSince">start date</param>
+            <param name="DateUntil">stop date</param>
+            <param name="exitFileName">saving filename</param>
+            <returns></returns>
+        </member>
+        <member name="M:Seniat.Seniat.obtenerTotales(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            get totals infos
+            </summary>
+            <param name="brandIdentification">identification for the cr brand</param>
+            <param name="modelIdentification">identification for the cr model</param>
+            <param name="DateSince">start date</param>
+            <param name="DateUntil">stop date</param>
+            <param name="exitFileName">saving filename</param>
+            <returns></returns>
+        </member>
+        <member name="M:Seniat.Seniat.obtenerDetalleArticulos(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            get total infos 
+            </summary>
+            <param name="DocumentType">type of the document</param>
+            <param name="DocumentNumber">number of the document</param>
+            <param name="brandIdentification">identification for the cr brand</param>
+            <param name="modelIdentification">identification for the cr model</param>
+            <param name="exitFileName">saving filename</param>
+            <returns></returns>
+        </member>
+        <member name="M:Seniat.Seniat.getInformation(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Seniat.Seniat.ExtractNumbers(System.String,System.Boolean)">
+            <summary>
+            extract numbers from a source string with pattern
+            </summary>
+            <param name="source">source string with including numbers</param>
+            <param name="extractOnlyIntegers">extract numbers only as integer - decimal separators will be ignore</param>
+            <returns>list of extract numbers as string</returns>
+        </member>
+        <member name="P:Seniat.Seniat.BAUDRATE">
+            <summary>
+            set/get the communication baudrate
+            </summary>
+        </member>
+        <member name="P:Seniat.Seniat.LastErrorMessage">
+            <summary>
+            get the last occur error message
+            </summary>
+        </member>
+        <member name="T:Seniat.Seniat.Baudrate">
+            <summary>
+            speed informations about the serial port
+            </summary>
+        </member>
+        <member name="F:Seniat.Seniat.Baudrate.CBR_9600">
+            <summary>
+            Baudrate 9600
+            </summary>
+        </member>
+        <member name="F:Seniat.Seniat.Baudrate.CBR_19200">
+            <summary>
+            Baudrate 19200
+            </summary>
+        </member>
+        <member name="F:Seniat.Seniat.Baudrate.CBR_38400">
+            <summary>
+            Baudrate 38400
+            </summary>
+        </member>
+        <member name="F:Seniat.Seniat.Baudrate.CBR_57600">
+            <summary>
+            Baudrate 57600
+            </summary>
+        </member>
+        <member name="F:Seniat.Seniat.Baudrate.CBR_115200">
+            <summary>
+            Baudrate 115200
+            </summary>
+        </member>
+        <member name="T:QCom.SerialCom">
+            <summary>
+            Class for control the Serial Communication
+            Encapsulated the System.IO.Ports.SerialPorts
+            </summary>
+        </member>
+        <member name="M:QCom.SerialCom.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:QCom.SerialCom.#ctor(System.String,QCom.SerialCom.BaudRate,System.Int32,QCom.SerialCom.Parities,QCom.SerialCom.StopBit)">
+            <summary>
+            Constructor for initialisation of this class
+            </summary>
+            <param name="portName">Name of the networkPort, where connected the device</param>
+            <param name="baudRate">baudrate for the device-communicaton</param>
+            <param name="databits">count of the databits for the device communication</param>
+            <param name="parity">kind of parity for the device communication</param>
+            <param name="stopBit">kind of stopbits for the device communication</param>
+        </member>
+        <member name="M:QCom.SerialCom.openSerialPort">
+            <summary>
+            open a connection to the device
+            </summary>
+        </member>
+        <member name="M:QCom.SerialCom.closeSerialPort">
+            <summary>
+            close the connection to the device
+            </summary>
+        </member>
+        <member name="M:QCom.SerialCom.sendText(System.String,System.Boolean)">
+            <summary>
+            sending a string over the serial port
+            </summary>
+            <param name="text">sending text</param>
+            <param name="waitForAnswer">is set false the program will not wait for an answer</param>
+        </member>
+        <member name="M:QCom.SerialCom.sendData(System.Byte[],System.Boolean)">
+            <summary>
+            sending a data byte array over the serial port
+            </summary>
+            <param name="data">sendign byte array</param>
+            <param name="waitForAnswer">is set false the program will not wait for an answer</param>
+        </member>
+        <member name="M:QCom.SerialCom.initSerial">
+            <summary>
+            initialisation of the serial communication - sets events and standard configurations
+            </summary>
+        </member>
+        <member name="M:QCom.SerialCom.setBaudRate(QCom.SerialCom.BaudRate)">
+            <summary>
+            set the baudrate for the serial communication
+            </summary>
+            <param name="baudRate">constant baudrate for the communication</param>
+        </member>
+        <member name="M:QCom.SerialCom.getBaudRate">
+            <summary>
+            return the setting baudrate
+            </summary>
+            <returns>baudrate is setting</returns>
+        </member>
+        <member name="M:QCom.SerialCom.setPortName(System.String)">
+            <summary>
+            set the port for the communication
+            </summary>
+            <param name="portname">portname for the communication</param>
+        </member>
+        <member name="M:QCom.SerialCom.isValidPortName(System.String)">
+            <summary>
+            check if the portname a valid or existing port on this device
+            </summary>
+            <param name="portname">portname which will check</param>
+            <returns>is port correct</returns>
+        </member>
+        <member name="M:QCom.SerialCom.setDatabits(System.Int32)">
+            <summary>
+            set the count of the databits for the communication
+            </summary>
+            <param name="databits">count of databits</param>
+        </member>
+        <member name="M:QCom.SerialCom.setParity(QCom.SerialCom.Parities)">
+            <summary>
+            set the kind of parity for the communication
+            </summary>
+            <param name="parity">parity</param>
+        </member>
+        <member name="M:QCom.SerialCom.getParity">
+            <summary>
+            return the setting parity
+            </summary>
+            <returns>partity wich is set</returns>
+        </member>
+        <member name="M:QCom.SerialCom.setStopbit(QCom.SerialCom.StopBit)">
+            <summary>
+            set the amount of the stopbits for the serial communication
+            </summary>
+            <param name="stopbits">stopbit which set for the communication</param>
+        </member>
+        <member name="M:QCom.SerialCom.getStopbit">
+            <summary>
+            return the setting stopbits for the communication
+            </summary>
+            <returns>setting stopbit</returns>
+        </member>
+        <member name="M:QCom.SerialCom.setDtrEnable(System.Boolean)">
+            <summary>
+            set a value thats enable the data terminal ready signal during the communication
+            </summary>
+            <param name="dtrEnable">dis-/enable DTR</param>
+        </member>
+        <member name="M:QCom.SerialCom.setRtsEnable(System.Boolean)">
+            <summary>
+            return the RTS setting
+            </summary>
+            <param name="rtsEnalbe">RTS Setting</param>
+        </member>
+        <member name="M:QCom.SerialCom.byteArrayToString(System.Byte[])">
+            <summary>
+            convert a byte-array to a string
+            </summary>
+            <param name="data">byte array</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:QCom.SerialCom._sPort_ErrorReceived(System.Object,System.IO.Ports.SerialErrorReceivedEventArgs)">
+            <summary>
+            occurs when an error send from the io-ports - currently not implemented
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:QCom.SerialCom._sPort_DataReceived(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
+            <summary>
+            occure whent data received over the io port
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:QCom.SerialCom.DataReceived">
+            <summary>
+            Event indicated by incoming data
+            </summary>
+        </member>
+        <member name="E:QCom.SerialCom.TimeOut">
+            <summary>
+            Evend indicated by timeout - no response from the source
+            </summary>
+        </member>
+        <member name="P:QCom.SerialCom.PortNames">
+            <summary>
+            Available Ports for this Computer
+            </summary>
+        </member>
+        <member name="P:QCom.SerialCom.Baudrate">
+            <summary>
+            get or set the baudrate for the communication
+            if setting the baudrate by active connection, the connection will be closed
+            </summary>
+        </member>
+        <member name="P:QCom.SerialCom.PortName">
+            <summary>
+            get or set the PortName
+            if setting the portname by active connection, the connection will be closed
+            the available Portname can be calling by the varialbe PortNames
+            </summary>
+        </member>
+        <member name="P:QCom.SerialCom.DataBits">
+            <summary>
+            get or set the length of data bits per bytes for the connection
+            if setting by open connection, the connection will be closed
+            </summary>
+        </member>
+        <member name="P:QCom.SerialCom.Parity">
+            <summary>
+            get or set the parity-checking protocol
+            if setting by open connection, the connection will be closed
+            </summary>
+        </member>
+        <member name="P:QCom.SerialCom.Stopbit">
+            <summary>
+            get and set the number of stopbits per byte
+            if setting by open connection, the connection will be closed
+            </summary>
+        </member>
+        <member name="P:QCom.SerialCom.DTREnable">
+            <summary>
+            get or set a value that enables the Data Terminal Ready (DTR) signal during the serial communication
+            if setting by open connection, the connection will be closed
+            </summary>
+        </member>
+        <member name="P:QCom.SerialCom.RTSEnable">
+            <summary>
+            get or set a value indicating whether the Request to Send (RTS) signal is enabled during serial communication
+            if setting by active connection, the connection will be closed
+            </summary>
+        </member>
+        <member name="T:QCom.SerialCom.BaudRate">
+            <summary>
+            Enumerate the possible Baudrates
+            </summary>
+        </member>
+        <member name="T:QCom.SerialCom.StopBit">
+            <summary>
+            Enumerate the possible Stopbits
+            </summary>
+        </member>
+        <member name="T:QCom.SerialCom.Parities">
+            <summary>
+            Enumerate the possible Parities
+            </summary>
+        </member>
+        <member name="T:QCom.SerialCom.ReadingRecordEventHandler">
+            <summary>
+            Event Handler for the serial data receive indication
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:QCom.ReceivedDataEventArgs">
+            <summary>
+            class definies the event args for the incoming data 
+            </summary>
+        </member>
+        <member name="M:QCom.ReceivedDataEventArgs.#ctor(System.String,System.Byte[])">
+            <summary>
+            constructor for this class
+            </summary>
+            <param name="receivedText">incoming serial data as string</param>
+            <param name="receivedData">incoming serial data as byte-array</param>
+        </member>
+        <member name="P:QCom.ReceivedDataEventArgs.ReceivedText">
+            <summary>
+            incoming data as string
+            </summary>
+        </member>
+        <member name="P:QCom.ReceivedDataEventArgs.ReceivedData">
+            <summary>
+            incoming data as byte array
+            </summary>
+        </member>
+    </members>
+</doc>

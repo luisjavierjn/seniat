@@ -1,0 +1,13 @@
+C:\Seniat\bin\Debug\Seniat.XML
+C:\Seniat\bin\Debug\Seniat.dll
+C:\Seniat\bin\Debug\Seniat.pdb
+C:\Seniat\bin\Debug\Seniat.tlb
+C:\Seniat\obj\Debug\ResolveAssemblyReference.cache
+C:\Seniat\obj\Debug\Seniat.dll
+C:\Seniat\obj\Debug\Seniat.pdb
+C:\Users\luisjavierjn\Documents\Visual Studio 2010\Projects\Seniat\bin\Debug\Seniat.XML
+C:\Users\luisjavierjn\Documents\Visual Studio 2010\Projects\Seniat\bin\Debug\Seniat.dll
+C:\Users\luisjavierjn\Documents\Visual Studio 2010\Projects\Seniat\bin\Debug\Seniat.pdb
+C:\Users\luisjavierjn\Documents\Visual Studio 2010\Projects\Seniat\obj\Debug\Seniat.dll
+C:\Users\luisjavierjn\Documents\Visual Studio 2010\Projects\Seniat\obj\Debug\Seniat.pdb
+C:\Users\luisjavierjn\Documents\Visual Studio 2010\Projects\Seniat\bin\Debug\Seniat.tlb
